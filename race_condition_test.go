@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"sync"
 	"testing"
+
+	"github.com/stretchr/testify/require"
 )
 
 func TestBank(t *testing.T) {
@@ -19,4 +21,19 @@ func TestBank(t *testing.T) {
 		wg.Done()
 	}()
 	wg.Wait()
+}
+
+func TestIsPalindrome(t *testing.T) {
+	n := 12345
+	r := isPalindrome(n)
+	require.False(t, r)
+	n = 123321
+	r = isPalindrome(n)
+	require.True(t, r)
+	n = 1
+	r = isPalindrome(n)
+	require.True(t, r)
+	n = 131
+	r = isPalindrome(n)
+	require.True(t, r)
 }
